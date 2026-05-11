@@ -1,0 +1,120 @@
+/* --- 1. GLOBAL & TYPOGRAPHY --- */
+body {
+    font-family: 'Public Sans', sans-serif;
+    background-color: #f5f5f9 !important;
+}
+
+/* --- 2. NAVBAR FIXED & BLUR --- */
+.main-navbar {
+    position: fixed !important;
+    top: 0;
+    left: 250px; 
+    width: calc(100% - 250px);
+    z-index: 890 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.5s;
+    height: 70px !important;
+}
+
+/* body.sidebar-mini .main-navbar {
+    left: 80px !important;
+    width: calc(100% - 30px) !important;
+} */
+ body.sidebar-mini .main-sidebar {
+    width: 80px !important;
+}
+
+/* --- 3. SIDEBAR ALA SNEAT (RAPAT + CAPSLOCK) --- */
+.main-sidebar {
+    box-shadow: none !important;
+    border-right: 1px solid #e6e6e6;
+    z-index: 900 !important;
+}
+
+.main-sidebar .sidebar-brand {
+    height: 70px !important; 
+    padding-top: 13px !important; /* Logo turun sedikit */
+    text-align: left !important;
+    padding-left: 25px !important;
+    margin-bottom: -1px !important; /* Mepet ke menu bawah */
+}
+
+.main-sidebar .sidebar-brand a {
+    text-transform: uppercase !important; /* TULISAN CAPSLOCK */
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    color: #566a7f !important;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.main-sidebar .sidebar-brand a i {
+    font-size: 28px !important; /* Ganti angka ini buat gede/kecil icon-nya */
+    margin-right: 28px;        /* Jarak antara icon ke tulisan FROZERIA */
+}
+
+.main-sidebar .sidebar-menu .menu-header {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    font-weight: 700;
+}
+
+.main-sidebar .sidebar-menu li a {
+    height: 44px !important; 
+    line-height: 44px !important;
+}
+
+.sidebar-menu li.active a {
+    background-color: #f3f2ff !important;
+    color: #696cff !important;
+    border-radius: 0 100px 100px 0;
+    margin-right: 15px;
+}
+
+/* --- 4. BUTTON AKSI WARNA-WARNI --- */
+.fz-btn-action {
+    width: 32px; height: 32px; border-radius: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: none !important; margin: 0 2px; transition: all 0.2s;
+}
+.btn-view { background-color: #e7e7ff !important; color: #696cff !important; }
+.btn-edit { background-color: #fff2e0 !important; color: #ffab00 !important; }
+.btn-delete { background-color: #ffe5e5 !important; color: #ff3e1d !important; }
+
+/* --- 5. LAYOUT & PUSH CONTENT --- */
+.main-content {
+    padding-top: 110px !important; 
+}
+
+@media (min-width: 1025px) {
+    .main-content {
+        padding-left: 280px !important;
+        transition: all 0.5s;
+    }
+    body.sidebar-mini .main-content {
+        padding-left: 100px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-navbar { left: 0 !important; width: 100% !important; }
+}
+
+/* --- NGATUR UKURAN LOGO PAS SIDEBAR DITUTUP (MINI) --- */
+
+/* 1. Ngatur besar icon es krim pas ditutup */
+.sidebar-mini .main-sidebar .sidebar-brand-sm a i {
+    font-size: 26px !important; /* <--- GANTI ANGKA INI buat gedein/kecilin logo pas ditutup */
+    margin-right: 0 !important;   /* Pastikan margin kanan 0 biar beneran di tengah */
+}
+
+/* 2. Ngatur posisi logo biar presisi di tengah box */
+.sidebar-mini .main-sidebar .sidebar-brand-sm {
+    height: 60px !important;      /* Tinggi kotak logonya */
+    line-height: 60px !important; /* Biar icon pas di tengah secara vertikal */
+    padding-top: 23px !important; /* Atur naik turunnya icon di sini */
+    text-align: center !important;
+}
