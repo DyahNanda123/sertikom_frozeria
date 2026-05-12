@@ -1,4 +1,5 @@
-<form action="{{ route('barang.store') }}" method="POST" class="form-ajax" enctype="multipart/form-data">
+<form action="{{ route('barang.store') }}" method="POST" class="form-ajax" enctype="multipart/form-data"> 
+    
     @csrf
     
     {{-- BAGIAN 1: INFORMASI UTAMA --}}

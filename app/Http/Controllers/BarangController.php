@@ -63,16 +63,16 @@ public function index(Request $request)
             'stok_minimum' => 'required|numeric',
             'harga_beli' => 'required|numeric',
             'harga_jual' => 'required|numeric',
-            'foto_barang' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'foto_barang' => 'nullable|image|mimes:jpeg,png,jpg|max:2048' // memastikan format
         ]);
 
         $data = $request->except('foto_barang');
 
-        if ($request->hasFile('foto_barang')) {
+        if ($request->hasFile('foto_barang')) {  // memastikan apa benar2 upload file
             $file = $request->file('foto_barang');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('barang', $filename, 'public');
-            $data['foto_barang'] = $filename;
+            $filename = time() . '_' . $file->getClientOriginalName(); // ganti nama file biar unik, kalau ada nama sama 2x at least ada time biar beda
+            $file->storeAs('barang', $filename, 'public'); // simmpan ke public
+            $data['foto_barang'] = $filename; // memasukkan fle ke array untuk disimpan
         }
 
         Barang::create($data);

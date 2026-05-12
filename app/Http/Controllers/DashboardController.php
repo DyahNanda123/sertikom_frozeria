@@ -25,8 +25,9 @@ class DashboardController extends Controller
             $query->where('kategori_id', $kategori_id);
         }
 
-        $sortField = $request->get('sort', 'id'); // Default urut berdasar ID
-        $sortOrder = $request->get('order', 'desc'); // Default yang terbaru di atas
+        // SORTING DATA
+        $sortField = $request->get('sort', 'id'); // Default urut berdasar ID ATAU kolom apa yg mau diurutin
+        $sortOrder = $request->get('order', 'desc'); // Default yang terbaru di atas atau kemana ngurutinnya
 
         $barang = $query->orderBy($sortField, $sortOrder)->paginate(10);
         
@@ -36,6 +37,7 @@ class DashboardController extends Controller
 
         // Hitung data untuk Card Informasi di atas tabel
         $total_barang = Barang::count();
+        $total_kategori = Kategori::count(); // <--- Hitungan Kategori yang bener
         $stok_menipis = Barang::where('jumlah_stok', '<', 20)->where('jumlah_stok', '>', 0)->count();
         $stok_habis = Barang::where('jumlah_stok', 0)->count();
 
@@ -43,6 +45,7 @@ class DashboardController extends Controller
             'barang', 
             'kategori', 
             'total_barang', 
+            'total_kategori', // <--- Dikirim ke view
             'stok_menipis', 
             'stok_habis'
         ));

@@ -59,7 +59,8 @@
         <div class="bg-white p-4 shadow-sm h-100" style="border-radius: 16px;">
             <div class="d-inline-flex align-items-center justify-content-center mb-3" style="width: 55px; height: 55px; border-radius: 14px; background: #e8fadf; color: #71dd37;"><i class="fas fa-layer-group fa-lg"></i></div>
             <h6 class="text-muted font-weight-bold">Total Kategori</h6>
-            <h2 class="font-weight-bold mb-0">{{ isset($barang) ? $barang->pluck('kategori_id')->unique()->count() : 0 }}</h2>
+            {{-- UBAH DI SINI: Panggil variabel $total_kategori --}}
+            <h2 class="font-weight-bold mb-0">{{ $total_kategori ?? 0 }}</h2>
         </div>
     </div>
     <div class="col-md-3 col-sm-6 mb-3">

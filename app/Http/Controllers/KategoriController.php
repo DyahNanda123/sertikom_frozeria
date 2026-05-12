@@ -115,7 +115,7 @@ class KategoriController extends Controller
         if ($request->ajax() || $request->wantsJson()) {
             $kategori = Kategori::withCount('barang')->findOrFail($id);
             
-            if ($kategori->barang_count > 0) {
+            if ($kategori->barang_count > 0) { // kategori bisa dihapus ketika barang 0
                 return response()->json([
                     'status' => false, 
                     'message' => 'Gagal menghapus! Kategori "' . $kategori->nama_kategori . '" masih memiliki ' . $kategori->barang_count . ' barang aktif.'
